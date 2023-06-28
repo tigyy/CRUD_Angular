@@ -1,0 +1,31 @@
+<div class="container">
+    <a class="btn btn-success" href="products/add">add</a>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>name</th>
+                <th>image</th>
+                <th>price</th>
+                <th>quality</th>
+                <th>description</th>
+                <th>action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+                <td>{{product.id}}</td>
+                <td>{{product.name}}</td>
+                <td><img src="{{product.img}}" alt=""></td>
+                <td>{{product.price}}</td>
+                <td>{{product.quality}}</td>
+                <td>{{product.description}}</td>
+                <td>
+                    <button class="btn btn-danger" (click)="onRemove(product.id!)">delete</button>
+                    <a [routerLink]="'update/'+product.id"><button class="btn btn-success">update</button></a>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
